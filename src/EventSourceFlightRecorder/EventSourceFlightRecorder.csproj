@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Title>EventSourceFlightRecorder</Title>
+    <Description>Continuous recording of in-process event sources. Useful for logging last events before an exception, e.g. unhandled top level exceptions.</Description>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/observito/EventSourceFlightRecorder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/observito/EventSourceFlightRecorder</RepositoryUrl>
+    <PackageTags>EventSource,Exception,ErrorHandling,ETW</PackageTags>
+    <AssemblyName>Observito.Trace.EventSourceFlightRecorder</AssemblyName>
+    <RootNamespace>Observito.Trace.EventSourceFlightRecorder</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.pfx</AssemblyOriginatorKeyFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
