@@ -3,7 +3,7 @@ using System.Diagnostics.Tracing;
 using System.Threading;
 using System.Threading.Tasks;
 using Observito.Trace.EventSourceFlightRecorder;
-using Observito.Trace.EventSourceFlightRecorder.Helpers;
+using Observito.Trace.EventSourceFormatter;
 
 namespace Sample
 {
@@ -25,13 +25,12 @@ namespace Sample
 
             using var recorder = new EventSourceFlightRecorder<string>(10);
 
-            string ToString(EventWrittenEventArgs ev)
+            string Format(EventWrittenEventArgs ev)
             {
-                var msg = EventFormatting.FormatMessage(ev);
-                return $"[{ev.TimeStamp:yyyy-MM-dd HH:mm:ss.ffff}] {ev.EventSource.Name}/{ev.EventName}/{ev.Opcode}: {msg}";
+                return EventSourceFormatter.Format(ev, includePayload: true /*, selector: ...*/); // optionally use selector to scrub sensitive data
             }
 
-            recorder.EnableEvents(EchoEventSource.Log, EventLevel.Informational, ToString);
+            recorder.EnableEvents(EchoEventSource.Log, EventLevel.Informational, Format);
 
             Console.WriteLine("Press enter to dump snapshot of collected events...");
             Console.ReadLine();

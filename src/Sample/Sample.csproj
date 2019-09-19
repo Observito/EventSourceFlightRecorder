@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Observito.Trace.EventSourceFormatter" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EventSourceFlightRecorder\EventSourceFlightRecorder.csproj" />
   </ItemGroup>
 
